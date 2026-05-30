@@ -1,81 +1,61 @@
-
- 
-<头>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="黑色透明">
 <meta name="apple-mobile-web-app-title" content="脑倾泻">
 <title>脑倾泻</title>
-<样式>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
-
-  body { background: #0D0D0F; color: #E8E8E8; font-family: 'Noto Sans SC', -apple-system, sans-serif; min-height: 100vh; padding-bottom: 120px; }
-  #app { max-width: 680px; margin: 0 auto; }
-
-  /* Header */
-  .header { padding: 48px 20px 20px; border-bottom: 1px solid #1E1E22; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-
-
-
-
-
-  /* Mode toggle */
-
-
-
-
-  /* Quick add */
-
-
-
-
-
-
-
-
-  .add-btn { width: 48px; height: 48px; border: none; border-radius: 10px; color: #fff; font-size: 28px; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 300; transition: opacity 0.15s; line-height: 1; }
-  .quick-hint { margin-top: 10px; font-size: 12px; color: #333; text-align: center; }
-
-  /* Bulk */
-  .bulk-card { margin: 20px 20px 0; background: #16161A; border: 1px solid #242428; border-radius: 16px; overflow: hidden; }
-  .bulk-textarea { width: 100%; background: transparent; border: none; outline: none; color: #E0E0E0; font-size: 15px; line-height: 1.7; padding: 20px; resize: none; font-family: inherit; }
-  .bulk-textarea::placeholder { color: #2E2E2E; line-height: 1.8; }
-  .bulk-footer { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px 16px; }
-  .bulk-hint { font-size: 12px; color: #3A3A3A; }
-  .parse-btn { background: #FF6B35; color: #fff; border: none; border-radius: 10px; padding: 12px 24px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: opacity 0.15s; }
-  .parse-btn:disabled { opacity: 0.4; }
-
-  /* Filter */
-  .filter-row { display: flex; gap: 8px; padding: 18px 20px 0; flex-wrap: wrap; align-items: center; }
-  .filter-btn { background: #16161A; border: 1px solid #242428; color: #777; border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer; font-family: inherit; display: flex; align-items: center; gap: 6px; }
-  .filter-btn.active { background: #1E1208; border-color: #FF6B35; color: #FF6B35; }
-  .badge { background: #FF6B35; color: #fff; border-radius: 10px; padding: 1px 7px; font-size: 11px; font-weight: 700; }
-  .clear-btn { margin-left: auto; background: transparent; border: none; color: #444; font-size: 12px; cursor: pointer; font-family: inherit; text-decoration: underline; }
-
-  /* List */
-  .list { padding: 14px 20px 0; display: flex; flex-direction: column; gap: 10px; }
-  .item { display: flex; align-items: flex-start; gap: 14px; background: #16161A; border: 1px solid #1E1E22; border-radius: 12px; padding: 14px 16px; animation: slideIn 0.25s ease; }
-  .item.done { opacity: 0.4; }
-  @keyframes slideIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-  .type-dot { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; opacity: 0.85; }
-  .item-content { flex: 1; min-width: 0; }
-  .item-text { font-size: 15px; line-height: 1.6; color: #E0E0E0; word-break: break-all; }
-  .item-text.done { text-decoration: line-through; }
-  .item-meta { margin-top: 6px; font-size: 12px; color: #555; display: flex; gap: 4px; align-items: center; }
-  .actions { display: flex; gap: 4px; flex-shrink: 0; }
-  .action-btn { background: transparent; border: none; font-size: 20px; cursor: pointer; padding: 2px 8px; border-radius: 6px; line-height: 1; }
-
-  /* Empty */
-  .empty { text-align: center; padding: 60px 20px; color: #444; font-size: 15px; line-height: 2; }
-  .empty-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.3; }
-  .empty-hint { font-size: 13px; color: #333; }
-
-  /* Loading */
-  .spin { display: inline-block; animation: spin 0.8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  .hidden { display: none; }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:#0D0D0F;color:#E8E8E8;font-family:-apple-system,sans-serif;min-height:100vh;padding-bottom:120px}
+#app{max-width:680px;margin:0 auto}
+.header{padding:48px 20px 20px;border-bottom:1px solid #1E1E22;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo-mark{width:48px;height:48px;background:#FF6B35;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;color:#fff;flex-shrink:0}
+.title{font-size:22px;font-weight:700;color:#F0F0F0}
+.subtitle{font-size:12px;color:#555;margin-top:2px}
+.mode-toggle{display:flex;gap:6px}
+.mode-btn{background:#16161A;border:1px solid #242428;color:#666;border-radius:8px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.mode-btn.active{border-color:#FF6B35;color:#FF6B35;background:#1E1208}
+.quick-card{margin:20px 20px 0;background:#16161A;border:1px solid #242428;border-radius:16px;padding:18px 18px 14px}
+.type-row{display:flex;gap:8px;margin-bottom:14px}
+.type-btn{flex:1;background:#111;border:1px solid #2A2A2E;color:#666;border-radius:8px;padding:10px 0;font-size:14px;cursor:pointer;font-family:inherit;transition:all 0.15s}
+.quick-row{display:flex;gap:10px;align-items:center}
+.quick-input{flex:1;background:#111;border:1px solid #2A2A2E;color:#E0E0E0;border-radius:10px;padding:14px;font-size:16px;outline:none;font-family:inherit}
+.quick-input:focus{border-color:#3A3A3E}
+.quick-input::placeholder{color:#383838}
+.add-btn{width:48px;height:48px;border:none;border-radius:10px;color:#fff;font-size:28px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:opacity 0.15s;line-height:1}
+.quick-hint{margin-top:10px;font-size:12px;color:#333;text-align:center}
+.bulk-card{margin:20px 20px 0;background:#16161A;border:1px solid #242428;border-radius:16px;overflow:hidden}
+.bulk-textarea{width:100%;background:transparent;border:none;outline:none;color:#E0E0E0;font-size:15px;line-height:1.7;padding:20px;resize:none;font-family:inherit}
+.bulk-textarea::placeholder{color:#2E2E2E;line-height:1.8}
+.bulk-footer{display:flex;align-items:center;justify-content:space-between;padding:8px 16px 16px}
+.bulk-hint{font-size:12px;color:#3A3A3A}
+.parse-btn{background:#FF6B35;color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.15s}
+.parse-btn:disabled{opacity:0.4}
+.filter-row{display:flex;gap:8px;padding:18px 20px 0;flex-wrap:wrap;align-items:center}
+.filter-btn{background:#16161A;border:1px solid #242428;color:#777;border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px}
+.filter-btn.active{background:#1E1208;border-color:#FF6B35;color:#FF6B35}
+.badge{background:#FF6B35;color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:700}
+.clear-btn{margin-left:auto;background:transparent;border:none;color:#444;font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline}
+.list{padding:14px 20px 0;display:flex;flex-direction:column;gap:10px}
+.item{display:flex;align-items:flex-start;gap:14px;background:#16161A;border:1px solid #1E1E22;border-radius:12px;padding:14px 16px;animation:slideIn 0.25s ease}
+.item.done{opacity:0.4}
+@keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.type-dot{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;opacity:0.85}
+.item-content{flex:1;min-width:0}
+.item-text{font-size:15px;line-height:1.6;color:#E0E0E0;word-break:break-all}
+.item-text.done{text-decoration:line-through}
+.item-meta{margin-top:6px;font-size:12px;color:#555;display:flex;gap:4px;align-items:center}
+.actions{display:flex;gap:4px;flex-shrink:0}
+.action-btn{background:transparent;border:none;font-size:20px;cursor:pointer;padding:2px 8px;border-radius:6px;line-height:1}
+.empty{text-align:center;padding:60px 20px;color:#444;font-size:15px;line-height:2}
+.empty-icon{font-size:48px;margin-bottom:12px;opacity:0.3}
+.empty-hint{font-size:13px;color:#333}
+.spin{display:inline-block;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hidden{display:none}
 </style>
 </head>
 <body>
@@ -94,12 +74,11 @@
     </div>
   </div>
 
-  <!-- Quick add -->
   <div class="quick-card" id="panel-quick">
     <div class="type-row">
       <button class="type-btn active" id="type-todo" onclick="setType('todo')" style="border-color:#FF6B35;color:#FF6B35;">⚡ 待办</button>
       <button class="type-btn" id="type-idea" onclick="setType('idea')">💡 想法</button>
-      <button class="type-btn" id="type-ref"  onclick="setType('ref')">📎 参考</button>
+      <button class="type-btn" id="type-ref" onclick="setType('ref')">📎 参考</button>
     </div>
     <div class="quick-row">
       <input class="quick-input" id="quick-input" type="text" placeholder="下午跟进李总报价…" onkeydown="if(event.key==='Enter')quickAdd()">
@@ -108,230 +87,131 @@
     <div class="quick-hint">点 + 或按 Enter 即可添加，无需 AI，秒存</div>
   </div>
 
-  <!-- Bulk -->
   <div class="bulk-card hidden" id="panel-bulk">
-    <textarea class="bulk-textarea" id="bulk-input" rows="6" placeholder="把微信里记的内容全部粘进来，不用整理……&#10;&#10;下周一前要发季度报告给 Lisa&#10;想做一个自动化工单系统&#10;参考 https://example.com&#10;明天下午三点约牙医"></textarea>
+    <textarea class="bulk-textarea" id="bulk-input" rows="6" placeholder="把微信里记的内容全部粘进来，不用整理……"></textarea>
     <div class="bulk-footer">
       <span class="bulk-hint">由 DeepSeek 驱动 · 国内直连</span>
       <button class="parse-btn" id="parse-btn" onclick="handleParse()">AI 解析 →</button>
     </div>
   </div>
 
-  <!-- Filter -->
   <div class="filter-row hidden" id="filter-row">
-    <button class="filter-btn active" id="f-all"  onclick="setFilter('all')">全部 <span class="badge" id="c-all">0</span></button>
+    <button class="filter-btn active" id="f-all" onclick="setFilter('all')">全部 <span class="badge" id="c-all">0</span></button>
     <button class="filter-btn" id="f-todo" onclick="setFilter('todo')">⚡ 待办 <span class="badge" id="c-todo" style="display:none"></span></button>
     <button class="filter-btn" id="f-idea" onclick="setFilter('idea')">💡 想法 <span class="badge" id="c-idea" style="display:none"></span></button>
-    <button class="filter-btn" id="f-ref"  onclick="setFilter('ref')">📎 参考 <span class="badge" id="c-ref" style="display:none"></span></button>
+    <button class="filter-btn" id="f-ref" onclick="setFilter('ref')">📎 参考 <span class="badge" id="c-ref" style="display:none"></span></button>
     <button class="filter-btn" id="f-done" onclick="setFilter('done')">✓ 完成 <span class="badge" id="c-done" style="display:none"></span></button>
     <button class="clear-btn hidden" id="clear-btn" onclick="clearDone()">清除已完成</button>
   </div>
 
-  <!-- List -->
   <div class="list" id="list"></div>
 </div>
-
 <script>
-const DS_KEY = "sk-6a780713b73d42368c6e7bed639df4a9";
-const STORAGE_KEY = "brain-dump-items";
-const CAT = {
-  todo: { label:"待办", emoji:"⚡", color:"#FF6B35" },
-  idea: { label:"想法", emoji:"💡", color:"#4ECDC4" },
-  ref:  { label:"参考", emoji:"📎", color:"#A8A8B3" },
-};
+var DS_KEY="sk-6a780713b73d42368c6e7bed639df4a9";
+var STORAGE_KEY="brain-dump-items";
+var CAT={todo:{label:"待办",emoji:"⚡",color:"#FF6B35"},idea:{label:"想法",emoji:"💡",color:"#4ECDC4"},ref:{label:"参考",emoji:"📎",color:"#A8A8B3"}};
+var items=[];
+var mode="quick";
+var quickType="todo";
+var filter="all";
 
-let items = [];
-let mode = "quick";
-let quickType = "todo";
-let filter = "all";
+function load(){try{items=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch(e){items=[]}}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(items))}catch(e){}}
 
-// ── Storage ──
-function load() {
-  try { items = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch { items = []; }
-}
-function save() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch {}
-}
-
-// ── Mode ──
-function setMode(m) {
-  mode = m;
-  document.getElementById("panel-quick").classList.toggle("hidden", m !== "quick");
-  document.getElementById("panel-bulk").classList.toggle("hidden", m !== "bulk");
-  document.getElementById("btn-quick").classList.toggle("active", m === "quick");
-  document.getElementById("btn-bulk").classList.toggle("active", m === "bulk");
-  if (m === "quick") document.getElementById("quick-input").focus();
+function setMode(m){
+  mode=m;
+  document.getElementById("panel-quick").classList.toggle("hidden",m!=="quick");
+  document.getElementById("panel-bulk").classList.toggle("hidden",m!=="bulk");
+  document.getElementById("btn-quick").classList.toggle("active",m==="quick");
+  document.getElementById("btn-bulk").classList.toggle("active",m==="bulk");
+  if(m==="quick")document.getElementById("quick-input").focus();
 }
 
-// ── Type ──
-function setType(t) {
-  quickType = t;
-  const colors = { todo:"#FF6B35", idea:"#4ECDC4", ref:"#A8A8B3" };
-  ["todo","idea","ref"].forEach(k => {
-    const btn = document.getElementById("type-"+k);
-    btn.classList.toggle("active", k === t);
-    btn.style.borderColor = k === t ? colors[k] : "#2A2A2E";
-    btn.style.color = k === t ? colors[k] : "#666";
+function setType(t){
+  quickType=t;
+  var colors={todo:"#FF6B35",idea:"#4ECDC4",ref:"#A8A8B3"};
+  ["todo","idea","ref"].forEach(function(k){
+    var btn=document.getElementById("type-"+k);
+    btn.classList.toggle("active",k===t);
+    btn.style.borderColor=k===t?colors[k]:"#2A2A2E";
+    btn.style.color=k===t?colors[k]:"#666";
   });
-  document.getElementById("add-btn").style.background = colors[t];
+  document.getElementById("add-btn").style.background=colors[t];
 }
 
-// ── Quick add ──
-function quickAdd() {
-  const input = document.getElementById("quick-input");
-  const text = input.value.trim();
-  if (!text) return;
-  items.unshift({ id: Date.now() + Math.random(), type: quickType, text, done: false, createdAt: new Date().toLocaleDateString("zh-CN") });
-  save();
-  render();
-  input.value = "";
+function quickAdd(){
+  var input=document.getElementById("quick-input");
+  var text=input.value.trim();
+  if(!text)return;
+  items.unshift({id:Date.now()+Math.random(),type:quickType,text:text,done:false,createdAt:new Date().toLocaleDateString("zh-CN")});
+  save();render();
+  input.value="";
   input.focus();
 }
 
-// ── Bulk parse ──
-async function handleParse() {
-  const input = document.getElementById("bulk-input");
-  const text = input.value.trim();
-  if (!text) return;
-  const btn = document.getElementById("parse-btn");
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spin">⟳</span>';
-
-  try {
-    const prompt = `你是一个待办事项解析助手。用户会给你一段零散的文字，里面可能包含多条内容混在一起。
-
-请将这段文字拆分并分类为以下三种类型：
-- todo: 需要行动、完成的事情（待办任务）
-- idea: 想法、灵感、未来可能做的事
-- ref: 参考资料、链接、信息备忘
-
-规则：
-1. 一句话/一件事 = 一条
-2. 保留原意，但可以稍微整理措辞使其更清晰
-3. 如果一条内容兼具多种属性，优先选 todo > idea > ref
-4. 只返回 JSON，不要任何其他文字
-
-输出格式（严格 JSON 数组）：
-[{"type":"todo","text":"具体任务描述"},{"type":"idea","text":"想法描述"}]
-
-用户输入：
-${text}`;
-
-    const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${DS_KEY}` },
-      body: JSON.stringify({ model: "deepseek-chat", max_tokens: 1000, messages: [{ role:"user", content: prompt }] })
-    });
-    const data = await res.json();
-    const raw = data.choices[0].message.content;
-    const clean = raw.replace(/```json|```/g, "").trim();
-    const parsed = JSON.parse(clean);
-    const newItems = parsed.map(p => ({ id: Date.now()+Math.random(), type: p.type, text: p.text, done: false, createdAt: new Date().toLocaleDateString("zh-CN") }));
-    items = [...newItems, ...items];
-    save();
-    render();
-    input.value = "";
-  } catch(e) {
-    alert("解析失败，请检查网络连接");
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = "AI 解析 →";
-  }
+function handleParse(){
+  var input=document.getElementById("bulk-input");
+  var text=input.value.trim();
+  if(!text)return;
+  var btn=document.getElementById("parse-btn");
+  btn.disabled=true;
+  btn.innerHTML='<span class="spin">⟳</span>';
+  var prompt="你是一个待办事项解析助手。将以下文字拆分分类为三种类型：todo(待办任务)、idea(想法灵感)、ref(参考资料)。只返回JSON数组，格式：[{\"type\":\"todo\",\"text\":\"内容\"}]。\n\n"+text;
+  fetch("https://api.deepseek.com/v1/chat/completions",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","Authorization":"Bearer "+DS_KEY},
+    body:JSON.stringify({model:"deepseek-chat",max_tokens:1000,messages:[{role:"user",content:prompt}]})
+  }).then(function(r){return r.json()}).then(function(data){
+    var raw=data.choices[0].message.content;
+    var clean=raw.replace(/```json|```/g,"").trim();
+    var parsed=JSON.parse(clean);
+    var newItems=parsed.map(function(p){return{id:Date.now()+Math.random(),type:p.type,text:p.text,done:false,createdAt:new Date().toLocaleDateString("zh-CN")}});
+    items=newItems.concat(items);
+    save();render();
+    input.value="";
+  }).catch(function(){alert("解析失败，请检查网络")}).finally(function(){
+    btn.disabled=false;btn.innerHTML="AI 解析 →";
+  });
 }
 
-// ── Filter ──
-function setFilter(f) {
-  filter = f;
-  ["all","todo","idea","ref","done"].forEach(k => {
-    document.getElementById("f-"+k).classList.toggle("active", k === f);
-  });
+function setFilter(f){
+  filter=f;
+  ["all","todo","idea","ref","done"].forEach(function(k){document.getElementById("f-"+k).classList.toggle("active",k===f)});
   render();
 }
 
-// ── Toggle / Delete ──
-function toggleDone(id) {
-  items = items.map(it => it.id === id ? {...it, done: !it.done} : it);
-  save(); render();
-}
-function deleteItem(id) {
-  items = items.filter(it => it.id !== id);
-  save(); render();
-}
-function clearDone() {
-  items = items.filter(it => !it.done);
-  save(); render();
-}
+function toggleDone(id){items=items.map(function(it){return it.id===id?Object.assign({},it,{done:!it.done}):it});save();render()}
+function deleteItem(id){items=items.filter(function(it){return it.id!==id});save();render()}
+function clearDone(){items=items.filter(function(it){return!it.done});save();render()}
 
-// ── Render ──
-function render() {
-  const counts = {
-    todo: items.filter(i => i.type==="todo" && !i.done).length,
-    idea: items.filter(i => i.type==="idea" && !i.done).length,
-    ref:  items.filter(i => i.type==="ref"  && !i.done).length,
-    done: items.filter(i => i.done).length,
-    all:  items.filter(i => !i.done).length,
-  };
+function escHtml(str){return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 
-  // Filter bar
-  const filterRow = document.getElementById("filter-row");
-  filterRow.classList.toggle("hidden", items.length === 0);
-
-  // Badges
-  ["all","todo","idea","ref","done"].forEach(k => {
-    const badge = document.getElementById("c-"+k);
-    badge.textContent = counts[k];
-    badge.style.display = counts[k] > 0 ? "" : "none";
+function render(){
+  var counts={todo:0,idea:0,ref:0,done:0,all:0};
+  items.forEach(function(i){if(i.done){counts.done++}else{counts.all++;counts[i.type]++}});
+  document.getElementById("filter-row").classList.toggle("hidden",items.length===0);
+  ["all","todo","idea","ref","done"].forEach(function(k){
+    var badge=document.getElementById("c-"+k);
+    badge.textContent=counts[k];
+    badge.style.display=counts[k]>0?"":"none";
   });
-
-  // Clear button
-  document.getElementById("clear-btn").classList.toggle("hidden", counts.done === 0);
-
-  // Filtered items
-  let filtered;
-  if (filter === "all")  filtered = items.filter(i => !i.done);
-  else if (filter === "done") filtered = items.filter(i => i.done);
-  else filtered = items.filter(i => i.type === filter && !i.done);
-
-  const list = document.getElementById("list");
-
-  if (filtered.length === 0 && items.length === 0) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">🧠</div><div>随手记一条，或粘贴一批</div><div class="empty-hint">AI 帮你分好类，你只管做</div></div>`;
-    return;
+  document.getElementById("clear-btn").classList.toggle("hidden",counts.done===0);
+  var filtered;
+  if(filter==="all")filtered=items.filter(function(i){return!i.done});
+  else if(filter==="done")filtered=items.filter(function(i){return i.done});
+  else filtered=items.filter(function(i){return i.type===filter&&!i.done});
+  var list=document.getElementById("list");
+  if(filtered.length===0&&items.length===0){
+    list.innerHTML='<div class="empty"><div class="empty-icon">🧠</div><div>随手记一条，或粘贴一批</div><div class="empty-hint">AI 帮你分好类，你只管做</div></div>';return;
   }
-  if (filtered.length === 0) {
-    list.innerHTML = `<div class="empty"><div class="empty-icon">✨</div><div>这里没有内容</div></div>`;
-    return;
-  }
-
-  list.innerHTML = filtered.map(item => {
-    const cat = CAT[item.type];
-    return `
-    <div class="item ${item.done ? 'done' : ''}">
-      <div class="type-dot" style="background:${cat.color}">${cat.emoji}</div>
-      <div class="item-content">
-        <div class="item-text ${item.done ? 'done' : ''}">${escHtml(item.text)}</div>
-        <div class="item-meta">
-          <span style="color:${cat.color}">${cat.label}</span>
-          <span style="color:#2A2A2A">·</span>
-          <span>${item.createdAt}</span>
-        </div>
-      </div>
-      <div class="actions">
-        ${item.type === 'todo' ? `<button class="action-btn" style="color:${item.done?'#4ECDC4':'#555'}" onclick="toggleDone(${item.id})">${item.done?'✓':'○'}</button>` : ''}
-        <button class="action-btn" style="color:#444" onclick="deleteItem(${item.id})">×</button>
-      </div>
-    </div>`;
+  if(filtered.length===0){list.innerHTML='<div class="empty"><div class="empty-icon">✨</div><div>这里没有内容</div></div>';return}
+  list.innerHTML=filtered.map(function(item){
+    var cat=CAT[item.type];
+    return'<div class="item'+(item.done?" done":"")+'"><div class="type-dot" style="background:'+cat.color+'">'+cat.emoji+'</div><div class="item-content"><div class="item-text'+(item.done?" done":"")+'">'+escHtml(item.text)+'</div><div class="item-meta"><span style="color:'+cat.color+'">'+cat.label+'</span><span style="color:#2A2A2A">·</span><span>'+item.createdAt+'</span></div></div><div class="actions">'+(item.type==="todo"?'<button class="action-btn" style="color:'+(item.done?"#4ECDC4":"#555")+'" onclick="toggleDone('+item.id+')">'+(item.done?"✓":"○")+'</button>':'')+'<button class="action-btn" style="color:#444" onclick="deleteItem('+item.id+')">×</button></div></div>';
   }).join("");
 }
 
-function escHtml(str) {
-  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
-
-// ── Init ──
-load();
-render();
-document.getElementById("quick-input").focus();
+load();render();
 </script>
 </body>
 </html>
